@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 60 56% 91%;
+    --foreground: 125 55% 23%;
+    --card: 60 56% 95%;
+    --card-foreground: 125 55% 23%;
+    --popover: 60 56% 95%;
+    --popover-foreground: 125 55% 23%;
+    --primary: 125 46% 33%;
+    --primary-foreground: 60 56% 95%;
+    --secondary: 16 20% 33%;
+    --secondary-foreground: 60 56% 91%;
+    --muted: 60 20% 85%;
+    --muted-foreground: 125 20% 35%;
+    --accent: 123 38% 56%;
+    --accent-foreground: 125 55% 12%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 60 56% 95%;
+    --border: 16 20% 33% / 0.2;
+    --input: 16 20% 33% / 0.2;
+    --ring: 125 46% 33%;
+    --radius: 0.25rem;
+
+    --sidebar-background: 60 56% 93%;
+    --sidebar-foreground: 125 55% 23%;
+    --sidebar-primary: 125 46% 33%;
+    --sidebar-primary-foreground: 60 56% 95%;
+    --sidebar-accent: 60 30% 88%;
+    --sidebar-accent-foreground: 125 55% 23%;
+    --sidebar-border: 16 20% 33% / 0.15;
+    --sidebar-ring: 125 46% 33%;
+
+    --font-heading: 'Fraunces', serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+
+    --glow-primary: 0 0 30px hsl(125 46% 33% / 0.15);
+    --gradient-earth: linear-gradient(135deg, hsl(60 56% 91%), hsl(60 30% 85%));
+  }
+
+  .dark {
+    --background: 140 8% 7%;
+    --foreground: 100 5% 89%;
+    --card: 140 8% 10%;
+    --card-foreground: 100 5% 89%;
+    --popover: 140 8% 10%;
+    --popover-foreground: 100 5% 89%;
+    --primary: 123 38% 45%;
+    --primary-foreground: 140 8% 7%;
+    --secondary: 16 15% 28%;
+    --secondary-foreground: 100 5% 89%;
+    --muted: 140 6% 15%;
+    --muted-foreground: 100 5% 65%;
+    --accent: 123 38% 56%;
+    --accent-foreground: 140 8% 7%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 100 5% 89%;
+    --border: 100 5% 89% / 0.1;
+    --input: 100 5% 89% / 0.1;
+    --ring: 123 38% 56%;
+
+    --sidebar-background: 140 8% 6%;
+    --sidebar-foreground: 100 5% 89%;
+    --sidebar-primary: 123 38% 56%;
+    --sidebar-primary-foreground: 140 8% 7%;
+    --sidebar-accent: 140 6% 12%;
+    --sidebar-accent-foreground: 100 5% 89%;
+    --sidebar-border: 100 5% 89% / 0.08;
+    --sidebar-ring: 123 38% 56%;
+
+    --glow-primary: 0 0 40px hsl(123 38% 56% / 0.15);
+    --gradient-earth: linear-gradient(135deg, hsl(140 8% 7%), hsl(140 6% 12%));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-4 py-16 md:px-8 md:py-24 lg:px-16 lg:py-32;
+  }
+
+  .container-custom {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .card-earth {
+    @apply bg-card border border-border rounded-sm p-6 transition-all duration-300;
+  }
+
+  .card-earth:hover {
+    box-shadow: var(--glow-primary);
+    @apply border-primary/30;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-8 py-3 rounded-sm font-body font-semibold text-sm tracking-wide uppercase transition-all duration-300;
+  }
+
+  .btn-primary:hover {
+    @apply bg-primary/90;
+    box-shadow: var(--glow-primary);
+  }
+
+  .btn-outline-earth {
+    @apply border-2 border-primary text-primary px-8 py-3 rounded-sm font-body font-semibold text-sm tracking-wide uppercase transition-all duration-300 bg-transparent;
+  }
+
+  .btn-outline-earth:hover {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+
+  .scroll-snap-x {
+    @apply flex overflow-x-auto snap-x snap-mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .scroll-snap-x::-webkit-scrollbar {
+    display: none;
+  }
+
+  .snap-item {
+    @apply snap-center flex-shrink-0;
+  }
+
+  .dark .dark-glow {
+    box-shadow: 0 0 60px hsl(123 38% 56% / 0.08);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
